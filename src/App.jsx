@@ -13,10 +13,12 @@ import ScientificCalculator from "./components/ScientificCalculator";
 import SimpleInterest from "./components/SimpleInterest";
 import CompoundInterest from "./components/CompoundInterest";
 import QuadraticEquation from "./components/QuadraticEquation";
-import MeanCalculator from "./components/MeanCalculator";
-import GroupedDataMean from "./components/GroupedDataMean";
-import MeanGroup from "./components/MeanGroup";
+import MeasuresOfDispersionGrouped from "./components/MeasuresOfDispersionGrouped";
 import MeasuresOfDispersionUngrouped from "./components/MeasuresOfDispersionUngrouped";
+import MeasuresOfCentralTendencyRaw from "./components/MeasuresOfCentralTendencyRaw";
+import MeasuresOfCentralTendencyGrouped from "./components/MeasuresOfCentralTendencyGrouped";
+import MeasuresOfCentralTendencyTabulate from "./components/MeasuresOfCentralTendencyTabulated";
+
 
 const App = () => {
   const multiplicationGameState = useSelector(
@@ -40,10 +42,12 @@ const App = () => {
         {/* <ScientificCalculator /> */}
         {/* <CompoundInterest /> */}
         {/* <QuadraticEquation /> */}
-        {/* <MeanCalculator /> */}
-        {/* <GroupedDataMean/>  */}
-        <MeanGroup />
+        {/* <MeasuresOfDispersionGrouped /> */}
         {/* <MeasuresOfDispersionUngrouped /> */}
+        <MeasuresOfCentralTendencyRaw />
+        {/* <MeasuresOfCentralTendencyTabulate /> */}
+        {/* <MeasuresOfCentralTendencyGrouped /> */}
+        {/* <ModeCalculator /> */}
         <Footer />
       </div>
 

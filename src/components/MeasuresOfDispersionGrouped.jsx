@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const MeanGroup = () => {
+const MeasuresOfDispersionGrouped = () => {
   const [data, setData] = useState([{ lower: "" , upper: "", freq: ""}]);
   const [range, setRange] = useState(null);
   const [mean, setMean] = useState(null)
@@ -29,8 +29,6 @@ const MeanGroup = () => {
     setRange(max - min)
   }
 
-  
-
   const calculateMean = () => {
    if (data.length === 0) return;
     
@@ -49,8 +47,6 @@ const MeanGroup = () => {
     const meanDev = devFromMean / sumFreq
     setMeanDeviation(meanDev)
   }
-
-
 
   const calcVariance = (mean, sumFreq) => {
     const summationfxsquared = data.reduce((sum, item) => sum + (Math.pow((((parseFloat(item.lower) + parseFloat(item.upper)) * 0.5) - mean), 2)* parseInt(item.freq)), 0)
@@ -71,7 +67,12 @@ const MeanGroup = () => {
   };
 
   const reset = () => {
-    window.location.reload();
+      setData([{ lower: "", upper: "", freq: "" }])
+      setRange(null)
+      setMean(null)
+      setMeanDeviation(null)
+      setVariance(null)
+      setStandardDev(null)
   }
 
  
@@ -153,4 +154,4 @@ const MeanGroup = () => {
   );
 };
 
-export default MeanGroup;
+export default MeasuresOfDispersionGrouped;
