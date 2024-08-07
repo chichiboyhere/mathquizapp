@@ -18,7 +18,7 @@ import MeasuresOfDispersionUngrouped from "./components/MeasuresOfDispersionUngr
 import MeasuresOfCentralTendencyRaw from "./components/MeasuresOfCentralTendencyRaw";
 import MeasuresOfCentralTendencyGrouped from "./components/MeasuresOfCentralTendencyGrouped";
 import MeasuresOfCentralTendencyTabulate from "./components/MeasuresOfCentralTendencyTabulated";
-
+import AmortizationCalculator from "./components/AmortizationCalculator";
 
 const App = () => {
   const multiplicationGameState = useSelector(
@@ -40,14 +40,15 @@ const App = () => {
         {arithmeticGameState === "quiz" && <ArithmeticGamePlay />}
         {arithmeticGameState === "end" && <ArithmeticGameEnd />}
         {/* <ScientificCalculator /> */}
-        {/* <CompoundInterest /> */}
+        <CompoundInterest />
         {/* <QuadraticEquation /> */}
         {/* <MeasuresOfDispersionGrouped /> */}
         {/* <MeasuresOfDispersionUngrouped /> */}
-        <MeasuresOfCentralTendencyRaw />
+        {/* <MeasuresOfCentralTendencyRaw /> */}
         {/* <MeasuresOfCentralTendencyTabulate /> */}
         {/* <MeasuresOfCentralTendencyGrouped /> */}
-        {/* <ModeCalculator /> */}
+        {/* <SimpleInterest /> */}
+        {/* <AmortizationCalculator /> */}
         <Footer />
       </div>
 

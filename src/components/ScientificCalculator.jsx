@@ -1,77 +1,150 @@
-import React, { useState } from 'react';
-import { evaluate } from 'mathjs';
-import Section from './Section';
+// src/ScientificCalculator.js
+import React, { useState } from "react";
+import { create, all } from "mathjs";
+
+const math = create(all);
 
 const ScientificCalculator = () => {
-    const [input, setInput] = useState("");
+  const [display, setDisplay] = useState("");
+  const [radianMode, setRadianMode] = useState(true);
 
-    const handleClick = (value) => {
-        setInput(input + value);
-    };
+  const handleButtonClick = (value) => {
+    if (value === "C") {
+      setDisplay("");
+    } else if (value === "←") {
+      setDisplay(display.slice(0, -1));
+    } else if (value === "=") {
+      calculateResult();
+    } else if (value === "x^2") {
+      setDisplay(display + "^2");
+    } else if (value === "x^y") {
+      setDisplay(display + "^");
+    } else if (value === "sin") {
+      setDisplay(display + "sin(");
+    } else if (value === "cos") {
+      setDisplay(display + "cos(");
+    } else if (value === "tan") {
+      setDisplay(display + "tan(");
+    } else if (value === "√") {
+      setDisplay(display + "√(");
+    } else if (value === "ln") {
+      setDisplay(display + "ln(");
+    } else if (value === "log") {
+      setDisplay(display + "log(");
+    } else {
+      setDisplay(display + value);
+    }
+  };
 
-    const handleClear = () => {
-        setInput("");
-    };
+  const calculateResult = () => {
+    try {
+      const expr = display
+        .replace(/√/g, "sqrt")
+        .replace(/ln/g, "log")
+        .replace(/log/g, "log10")
+        .replace(/π/g, "pi")
+        .replace(/×/g, "*")
+        .replace(/e/g, "exp(1)");
 
-    const handleCalculate = () => {
-        try {
-            setInput(evaluate(input).toString());
-        } catch {
-            setInput("Error");
-        }
-    };
+      const scope = {
+        sin: radianMode ? math.sin : (x) => math.sin(math.unit(x, "deg")),
+        cos: radianMode ? math.cos : (x) => math.cos(math.unit(x, "deg")),
+        tan: radianMode ? math.tan : (x) => math.tan(math.unit(x, "deg")),
+        factorial: math.factorial,
+        sqrt: math.sqrt,
+        log: math.log,
+        log10: math.log10,
+        pi: math.pi,
+        exp: math.exp,
+      };
 
-    const handleScientificOperation = (operation) => {
-        try {
-            setInput(evaluate(`${operation}(${input})`).toString());
-        } catch {
-            setInput("Error");
-        }
-    };
+      const result = math.evaluate(expr, scope);
+      setDisplay(result);
+    } catch (error) {
+      setDisplay("Error");
+    }
+  };
 
-    return (
-        <Section id="calculators">
-        <div className="flex flex-col items-center p-6">
-            <div className="w-80 bg-gray-800 p-4 rounded-lg shadow-lg">
-                <input
-                    type="text"
-                    value={input}
-                    readOnly
-                    className="w-full p-2 mb-4 text-right bg-gray-700 text-white rounded-md"
-                />
-                <div className="grid grid-cols-4 gap-2">
-                    <button onClick={() => handleScientificOperation('sqrt')} className="btn">√</button>
-                    <button onClick={() => handleScientificOperation('sin')} className="btn">sin</button>
-                    <button onClick={() => handleScientificOperation('cos')} className="btn">cos</button>
-                    <button onClick={() => handleScientificOperation('tan')} className="btn">tan</button>
-
-                    <button onClick={() => handleClick('7')} className="btn">7</button>
-                    <button onClick={() => handleClick('8')} className="btn">8</button>
-                    <button onClick={() => handleClick('9')} className="btn">9</button>
-                    <button onClick={() => handleClick('/')} className="btn">&divide;</button>
-
-                    <button onClick={() => handleClick('4')} className="btn">4</button>
-                    <button onClick={() => handleClick('5')} className="btn">5</button>
-                    <button onClick={() => handleClick('6')} className="btn">6</button>
-                    <button onClick={() => handleClick('*')} className="btn">&times;</button>
-
-                    <button onClick={() => handleClick('1')} className="btn">1</button>
-                    <button onClick={() => handleClick('2')} className="btn">2</button>
-                    <button onClick={() => handleClick('3')} className="btn">3</button>
-                    <button onClick={() => handleClick('-')} className="btn">-</button>
-
-                    <button onClick={() => handleClick('0')} className="btn col-span">0</button>
-                    <button onClick={() => handleClick('.')} className="btn">.</button>
-                    <button onClick={() => handleClick('+')} className="btn">+</button>
-
-                    <button onClick={handleClear} className="btn col-span">C</button>
-                    <button onClick={handleCalculate} className="btn col-span bg-blue-500 text-white">=</button>
-                    
-                </div>
-            </div>
-        </div>
-        </Section>
-    );
+  return (
+    <div className="container mx-auto p-4 md:w-1/2">
+      <h1 className="text-2xl font-bold mb-4">Scientific Calculator</h1>
+      <div className="mb-4">
+        <input
+          type="text"
+          className="w-full p-2 border border-gray-300 rounded"
+          value={display}
+          placeholder="Ensure inputs have matching brackets"
+          readOnly
+        />
+      </div>
+      <div className="mb-4 flex justify-end">
+        <button
+          onClick={() => setRadianMode(!radianMode)}
+          className="bg-blue-500 text-white px-4 py-2 rounded"
+        >
+          {radianMode ? "Radian" : "Degree"}
+        </button>
+      </div>
+      <div className="grid grid-cols-4 gap-2">
+        {[
+          "sin",
+          "cos",
+          "tan",
+          "√",
+          "x^2",
+          "x^y",
+          "ln",
+          "log",
+          "!",
+          "π",
+          "e",
+        ].map((btn, index) => (
+          <button
+            key={index}
+            onClick={() => handleButtonClick(btn)}
+            className="bg-slate-500 text-white px-4 py-2 rounded"
+          >
+            {btn}
+          </button>
+        ))}
+        {[
+          "C",
+          "←",
+          "(",
+          ")",
+          "/",
+          "7",
+          "8",
+          "9",
+          "×",
+          "4",
+          "5",
+          "6",
+          "-",
+          "1",
+          "2",
+          "3",
+          ".",
+          "0",
+          "+",
+        ].map((btn, index) => (
+          <button
+            key={index}
+            onClick={() => handleButtonClick(btn)}
+            className="bg-gray-200 text-black px-4 py-2 rounded"
+          >
+            {btn}
+          </button>
+        ))}
+        <button
+          onClick={() => handleButtonClick("=")}
+          className="bg-blue-500 text-white px-4 py-2 rounded col-span-2"
+        >
+          =
+        </button>
+      </div>
+    </div>
+  );
 };
 
 export default ScientificCalculator;

@@ -255,79 +255,81 @@ const CompoundInterest = () => {
   //     decoOutputClear(refInt);
   //   }
   return (
-    <Section id="calculators">
-      <div className="container">
-        <Heading
-          title="Compound Interest Calculator"
-          text="Fill three relevant input fields and the calculator will fill out the rest"
-        />
-        <div className="relative max-w-[23rem] mx-auto md:max-w-5xl xl:mb-24">
-          <div className="relative z-1 p-0.5 rounded-2xl bg-conic-gradient">
-            <div className="relative bg-n-8 rounded-[1rem]">
-              <div className="h-[1.4rem] bg-n-10 rounded-t-[0.9rem]" />
+      <div className="container mx-auto p-4 md:w-1/2 ">
+      <h1 className="text-2xl font-bold mb-4 text-white">
+        Compound Interest Calculator
+      </h1>
 
-              <div className="aspect-[33/40] rounded-b-[0.9rem] md:aspect-[688/490] lg:aspect-[1024/490] mt-12 lg:dvh p-6">
-                <form className="flex flex-col gap-5">
-                  <label htmlFor="principal">Principal</label>
-                  <input
-                    className="rounded-md border-2 border-teal-100 py-1 text-center"
-                    id="principal"
-                    type="number"
-                    value={principal}
-                    onChange={handlePrincipal}
-                    ref={refPrinc}
-                  />
-                  <label htmlFor="rate">Rate (%)</label>
-                  <input
-                    className="rounded-md border-2 border-teal-100 py-1 text-center"
-                    id="rate"
-                    type="number"
-                    value={rate}
-                    onChange={handleRate}
-                    ref={refRate}
-                  />
-                  <label htmlFor="">
-                    Number of times interest is compounded
-                  </label>
+      <h2 className="text-xl font-bold mb-4 text-white">
+      Fill three relevant input fields and the calculator will fill out the rest
+      </h2>
+      <form className="flex flex-col gap-5">
+          <label htmlFor="principal">Principal</label>
+          <input
+            className="rounded-md border-2 border-teal-100 py-1 text-center"
+            id="principal"
+            type="number"
+            value={principal}
+            onChange={handlePrincipal}
+            ref={refPrinc}
+          />
+          <label htmlFor="rate">Rate (%)</label>
+          <input
+            className="rounded-md border-2 border-teal-100 py-1 text-center"
+            id="rate"
+            type="number"
+            value={rate}
+            onChange={handleRate}
+            ref={refRate}
+          />
+          <label htmlFor="">
+            Number of times interest is compounded
+          </label>
 
-                  <input
-                    className="rounded-md border-2 border-teal-100 py-1 text-center"
-                    id="numOfCpd"
-                    type="number"
-                    value={numOfCpd}
-                    onChange={handleNumOfCpd}
-                    ref={refNum}
-                  />
+          <input
+            className="rounded-md border-2 border-teal-100 py-1 text-center"
+            id="numOfCpd"
+            type="number"
+            value={numOfCpd}
+            onChange={handleNumOfCpd}
+            ref={refNum}
+          />
 
-                  <label htmlFor="interest">Interest</label>
-                  <input
-                    className="rounded-md border-2 border-teal-100 py-1 text-center"
-                    id="interest"
-                    type="number"
-                    value={interest}
-                    onChange={handleInterest}
-                    ref={refInt}
-                  />
-                  <label htmlFor="amount">Amount</label>
-                  <input
-                    className="rounded-md border-2 border-teal-100 py-1 text-center"
-                    id="amount"
-                    type="number"
-                    value={amount}
-                    onChange={handleAmount}
-                    ref={refAmt}
-                  />
-                  <p className="flex gap-2 justify-center md:gap-20">
-                    <Button onClick={checkInputs}>Solve</Button>
-                    <Button onClick={reset}>Reset</Button>
-                  </p>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
+          <label htmlFor="interest">Interest</label>
+          <input
+            className="rounded-md border-2 border-teal-100 py-1 text-center"
+            id="interest"
+            type="number"
+            value={interest}
+            onChange={handleInterest}
+            ref={refInt}
+          />
+          <label htmlFor="amount">Amount</label>
+          <input
+            className="rounded-md border-2 border-teal-100 py-1 text-center"
+            id="amount"
+            type="number"
+            value={amount}
+            onChange={handleAmount}
+            ref={refAmt}
+          />
+       <div className="flex gap-2">
+        <button
+          onClick={checkInputs}
+          className="w-1/2 bg-blue-500 text-white p-2 rounded hover:bg-blue-600"
+        >
+          Calculate
+        </button>
+        <button
+          onClick={reset}
+          className="w-1/2 bg-yellow-500 text-white p-2 rounded hover:bg-yellow-400"
+        >
+          Reset
+        </button>
       </div>
-    </Section>
+    </form> 
+   </div>     
+    
   );
 };
 

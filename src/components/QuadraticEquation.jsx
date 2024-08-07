@@ -1,13 +1,10 @@
 import React, { useState} from 'react'
-import Section from './Section'
-import Heading from './Heading'
-import Button from './Button'
 
 const QuadraticEquation = () => {
  const [xSquaredInput, setXSquaredInput] = useState("")
  const [xInput, setXInput] = useState("")
  const [constant, setConstant] = useState("")
- const [result, setResult] = useState("")
+ const [result, setResult] = useState(null)
 
  
 
@@ -46,10 +43,11 @@ const QuadraticEquation = () => {
     setXSquaredInput("")
     setXInput("")
     setConstant("")
+    setResult(null)
  }
 
  const checkInputs = () => {
-    if (xSquaredInput.length === 0 && xInput.length && constant.length) {
+    if ((xSquaredInput.length === 0 || xSquaredInput == 0 ) && xInput.length && constant.length) {
         alert("Cant's have the coefficent of x-squared as 0 or null")
     }
     else if (xSquaredInput.length === 0 && xInput.length === 0 && constant.length === 0){
@@ -60,33 +58,27 @@ const QuadraticEquation = () => {
     }
  }
   return (
-    <Section id="calculators">
-     <div className="container">
-      <Heading
-        title="Quadratic Calculator"
-        text="Enter the appropriate figures in the boxes below and push the 'solve' button to get the result(s)"
-      />
-         <div className="relative max-w-[23rem] mx-auto md:max-w-5xl xl:mb-24">
-          <div className="relative z-1 p-0.5 rounded-2xl bg-conic-gradient">
-            <div className="relative bg-n-8 rounded-[1rem]">
-              <div className="h-[1.4rem] bg-n-10 rounded-t-[0.9rem]" />
+   <div className="container mx-auto p-4 md:w-1/2 ">
+      <h1 className="text-2xl font-bold mb-4 text-white">
+        Quadratic Equation Calculator
+      </h1>
+      <h2 className="text-xl font-bold mb-4 text-white">
+      Enter the appropriate figures in the boxes below and push the 'solve' button to get the result(s)
+      </h2>
+      <h2 className="text-xl font-bold mb-4 text-white">
+       Quadratic Form: &nbsp; ax&sup2; + bx + c = 0
+      </h2>
 
-              <div className="aspect-[33/40] rounded-b-[0.9rem] md:aspect-[688/490] lg:aspect-[1024/490] mt-12 lg:dvh p-6">
-             
-          <form className="flex flex-col gap-5">
-            <p> Format: &nbsp; ax&sup2; + bx + c = 0</p>
-           
-            <p className="flex gap-2">
-                <input
+      <div className="flex gap-2 mb-3">
+            <input
                     className="rounded-md border-2 border-teal-100 py-1 text-center w-1/3"
                     id="xsquared"
                     type="number"
                     placeholder="a"
                     value={xSquaredInput}
                     onChange={handleXSquaredInput}
-                />
-               
-                <input
+            />
+             <input
                     className="rounded-md border-2 border-teal-100 py-1 text-center w-1/3"
                     id="x"
                     type="number"
@@ -103,23 +95,34 @@ const QuadraticEquation = () => {
                     value={constant}
                     onChange={handleConstant}
                 />
-               
-            </p>
-            <p className="text-center">
-               {result} 
-            </p>
-            <p className="flex gap-2 justify-center md:gap-20">
-                <Button onClick={checkInputs}>Solve</Button>
-                <Button onClick={reset}>Reset</Button>
-            </p>
-        </form>
-              
+
+      </div>
+      
+      <div className="flex gap-2">
+        <button
+          onClick={checkInputs}
+          className="w-1/2 bg-blue-500 text-white p-2 rounded hover:bg-blue-600"
+        >
+          Solve
+        </button>
+        <button
+          onClick={reset}
+          className="w-1/2 bg-yellow-500 text-white p-2 rounded hover:bg-yellow-400"
+        >
+          Reset
+        </button>
+      </div>
+     
+      {result !== null && (
+        <div className="mt-4 p-4 bg-green-100 border border-green-400 rounded">
+          <h2 className="text-xl font-semibold text-black">{result}</h2>
         </div>
+      )}
+
+     
     </div>
-    </div>
-    </div>
-   </div>
-  </Section>
+
+  
   )
 }
 
