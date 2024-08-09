@@ -1,11 +1,12 @@
 import React, { useState } from "react";
-import Button from "./Button";
+import Button from "../Button";
 
-const MeasuresOfCentralTendencyTabulate = ({menuShow}) => {
+const MeasuresOfDispersionUngrouped = ({menuShow}) => {
   const [data, setData] = useState([{ value: "", freq: 1 }]);
-  const [median, setMedian] = useState(null);
-  const [mean, setMean] = useState(null);
-  const [mode, setMode] = useState(null);
+  const [range, setRange] = useState(null);
+  const [meanDeviation, setMeanDeviation] = useState(null);
+  const [variance, setVariance] = useState(null);
+  const [standardDev, setStandardDev] = useState(null);
 
   const handleAddField = () => {
     setData([...data, { value: "", freq: 1 }]);
@@ -14,6 +15,16 @@ const MeasuresOfCentralTendencyTabulate = ({menuShow}) => {
   const handleRemoveField = (index) => {
     const newData = data.filter((_, i) => i !== index);
     setData(newData);
+  };
+
+  const calculateRange = () => {
+    let nums = [];
+    for (let i = 0; i < data.length; i++) {
+      nums.push(parseFloat(data[i].value));
+    }
+    let min = Math.min(...nums);
+    let max = Math.max(...nums);
+    setRange(max - min);
   };
 
   const calculateMean = () => {
@@ -28,49 +39,35 @@ const MeasuresOfCentralTendencyTabulate = ({menuShow}) => {
       0
     );
     const meanValue = weightedSum / totalFrequency;
-    setMean(meanValue);
-    calculateMedian();
-    calculateMode();
+    calcMeanDeviation(meanValue, totalFrequency);
+    calcVariance(meanValue, totalFrequency);
+    calculateRange();
   };
 
-  const calculateMedian = () => {
-    // Create an array with all values repeated according to their frequency
-    const expandedData = data.flatMap((entry) =>
-      Array(Number(entry.freq)).fill(Number(entry.value))
+  const calcMeanDeviation = (mean, sumFreq) => {
+    const devFromMean = data.reduce(
+      (sum, item) =>
+        sum + Math.abs(parseFloat(item.value) - mean) * parseInt(item.freq),
+      0
     );
-    expandedData.sort((a, b) => a - b);
-
-    const n = expandedData.length;
-    const mid = Math.floor(n / 2);
-    const median =
-      n % 2 === 0
-        ? (expandedData[mid - 1] + expandedData[mid]) / 2
-        : expandedData[mid];
-
-    setMedian(median);
+    const meanDev = devFromMean / sumFreq;
+    setMeanDeviation(meanDev);
   };
 
-  const calculateMode = () => {
-    let modes = [];
-    let allFreqs = [];
-    let maxFreq;
-    data.forEach((datum) => {
-      allFreqs.push(parseInt(datum.freq));
-      maxFreq = Math.max(...allFreqs);
-    });
-
-    for (let i = 0; i < data.length; i++) {
-      if (parseInt(data[i].freq) === maxFreq) {
-        modes.push(parseFloat(data[i].value));
-      }
-    }
-    setMode(
-      modes.length > 1 && maxFreq > 1
-        ? `Multiple modes: ${modes.join(", ")}`
-        : maxFreq === 1
-        ? `Mode: No Modes`
-        : `Mode: ${modes[0]}`
+  const calcVariance = (mean, sumFreq) => {
+    const summationfxsquared = data.reduce(
+      (sum, item) =>
+        sum + Math.pow(parseFloat(item.value) - mean, 2) * parseInt(item.freq),
+      0
     );
+    const varian = summationfxsquared / sumFreq;
+    setVariance(varian);
+    calcStandardDeviation(varian);
+  };
+
+  const calcStandardDeviation = (varian) => {
+    const sd = Math.sqrt(varian);
+    setStandardDev(sd);
   };
 
   const handleChange = (index, event) => {
@@ -81,15 +78,16 @@ const MeasuresOfCentralTendencyTabulate = ({menuShow}) => {
 
   const reset = () => {
     setData([{ value: "", freq: 1 }]);
-    setMean(null);
-    setMode(null);
-    setMedian(null);
+    setRange(null);
+    setMeanDeviation(null);
+    setStandardDev(null);
+    setVariance(null);
   };
 
   return (
     <div className="container mx-auto p-4 md:w-1/2">
       <h1 className="text-2xl font-bold mb-4">
-        Mean, Mode and Median Calculator(tabulated)
+        Range, Mean Deviation, Variance, Standard Deviation (Ungrouped)Calculator
       </h1>
       <table className="min-w-full bg-white">
         <thead>
@@ -156,21 +154,33 @@ const MeasuresOfCentralTendencyTabulate = ({menuShow}) => {
         </button>
       </div>
 
-      {mean !== null && (
+      {range !== null && (
         <div className="mt-4 p-4 bg-green-100 border border-green-400 rounded">
-          <h2 className="text-xl font-semibold text-black">Mean: {mean}</h2>
+          <h2 className="text-xl font-semibold text-black">Range: {range}</h2>
         </div>
       )}
 
-      {mode !== null && (
+      {meanDeviation !== null && (
         <div className="mt-4 p-4 bg-green-100 border border-green-400 rounded">
-          <h2 className="text-xl font-semibold text-black">{mode}</h2>
+          <h2 className="text-xl font-semibold text-black">
+            Mean Deviation: {meanDeviation}
+          </h2>
         </div>
       )}
 
-      {median !== null && (
+      {variance !== null && (
         <div className="mt-4 p-4 bg-green-100 border border-green-400 rounded">
-          <h2 className="text-xl font-semibold text-black">Median: {median}</h2>
+          <h2 className="text-xl font-semibold text-black">
+            Variance: {variance}
+          </h2>
+        </div>
+      )}
+
+      {standardDev !== null && (
+        <div className="mt-4 p-4 bg-green-100 border border-green-400 rounded">
+          <h2 className="text-xl font-semibold text-black">
+            Standard Deviation: {standardDev}
+          </h2>
         </div>
       )}
       <div className="mt-4">
@@ -180,4 +190,4 @@ const MeasuresOfCentralTendencyTabulate = ({menuShow}) => {
   );
 };
 
-export default MeasuresOfCentralTendencyTabulate;
+export default MeasuresOfDispersionUngrouped;

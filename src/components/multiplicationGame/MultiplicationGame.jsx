@@ -1,9 +1,9 @@
-import Section from "./Section";
-import Heading from "./Heading";
-import studentLarge from "../assets/multiplicationGame/studentfinal.png";
-import check from "../assets/multiplicationGame/check.svg";
-import { multiplicationGameBenefits } from "../constants";
-import Entry from "./Entry";
+import Section from "../Section";
+import Heading from "../Heading";
+import studentLarge from "../../assets/multiplicationGame/studentfinal.png";
+import check from "../../assets/multiplicationGame/check.svg";
+import { multiplicationGameBenefits } from "../../constants";
+import Entry from "../Entry";
 
 const MultiplicationGame = () => {
   return (

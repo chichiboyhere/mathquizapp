@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
-import { increaseScore, decreaseScore, setTimer, countQuestion, start, end, resetTimer, resetTable, resetScore} from "../features/multiplicationGameSlice";
+import { increaseScore, decreaseScore, setTimer, countQuestion, start, end, resetTimer, resetTable, resetScore} from "../../features/multiplicationGameSlice";
 import { useDispatch, useSelector } from 'react-redux';
-import Section from "./Section";
-import Heading from "./Heading";
-import { BackgroundCircles } from "./design/Hero";
-import Modal from "./Modal";
+import Section from "../Section";
+import Heading from "../Heading";
+import { BackgroundCircles } from "../design/Hero";
+import Modal from "../Modal";
 
 
 

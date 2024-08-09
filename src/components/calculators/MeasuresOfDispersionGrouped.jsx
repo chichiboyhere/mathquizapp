@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Button from "./Button";
+import Button from "../Button";
 
 const MeasuresOfDispersionGrouped = ({menuShow}) => {
   const [data, setData] = useState([{ lower: "", upper: "", freq: "" }]);

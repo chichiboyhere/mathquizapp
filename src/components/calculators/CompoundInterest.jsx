@@ -1,7 +1,5 @@
 import React, { useState, useRef } from "react";
-import Button from "./Button";
-import Section from "./Section";
-import Heading from "./Heading";
+import Button from "../Button";
 
 const CompoundInterest = ({menuShow}) => {
   const [principal, setPrincipal] = useState("");

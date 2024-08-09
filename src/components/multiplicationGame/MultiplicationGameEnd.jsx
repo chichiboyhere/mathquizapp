@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
-import { slowSpeed, goodSpeed, greatSpeed, setTimer, resetCountQuestion, start, resetTable, resetScore} from "../features/multiplicationGameSlice"
+import { slowSpeed, goodSpeed, greatSpeed, setTimer, resetCountQuestion, start, resetTable, resetScore} from "../../features/multiplicationGameSlice"
 import { useDispatch, useSelector } from 'react-redux';
-import Section from "./Section";
-import Heading from './Heading';
-import Button from './Button';
-import studentLarge from "../assets/multiplicationGame/studentfinal.png";
+import Section from "../Section";
+import Heading from '../Heading';
+import Button from '../Button';
+import studentLarge from "../../assets/multiplicationGame/studentfinal.png";
 
 const MultiplicationGameEnd = () => {
     const dispatch = useDispatch();

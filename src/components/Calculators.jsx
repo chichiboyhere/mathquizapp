@@ -10,29 +10,28 @@ import backgroundUrl6 from "../assets/calcCards/card-6.svg"
 import { GradientLight } from './design/GradientLight'
 import Arrow from '../assets/svg/Arrow'
 import ClipPath from '../assets/svg/ClipPath'
-import ScientificCalculator from './ScientificCalculator'
-import SimpleInterest from './SimpleInterest'
-import CompoundInterest from './CompoundInterest'
-import AmortizationCalculator from './AmortizationCalculator'
-import QuadraticEquation from './QuadraticEquation'
-import MeasuresOfCentralTendencyRaw from './MeasuresOfCentralTendencyRaw'
-import MeasuresOfCentralTendencyTabulate from './MeasuresOfCentralTendencyTabulated'
-import MeasuresOfCentralTendencyGrouped from './MeasuresOfCentralTendencyGrouped'
-import MeasuresOfDispersionUngrouped from './MeasuresOfDispersionUngrouped'
-import MeasuresOfDispersionGrouped from './MeasuresOfDispersionGrouped'
+import ScientificCalculator from './calculators/ScientificCalculator'
+import SimpleInterest from './calculators/SimpleInterest'
+import CompoundInterest from './calculators/CompoundInterest'
+import AmortizationCalculator from './calculators/AmortizationCalculator'
+import QuadraticEquation from './calculators/QuadraticEquation'
+import MeasuresOfCentralTendencyRaw from './calculators/MeasuresOfCentralTendencyRaw'
+import MeasuresOfCentralTendencyTabulate from './calculators/MeasuresOfCentralTendencyTabulated'
+import MeasuresOfCentralTendencyGrouped from './calculators/MeasuresOfCentralTendencyGrouped'
+import MeasuresOfDispersionUngrouped from './calculators/MeasuresOfDispersionUngrouped'
+import MeasuresOfDispersionGrouped from './calculators/MeasuresOfDispersionGrouped'
 import MathJax from "react-mathjax";
 
 const formulas = [
   {
-    text: `\\text{Simple Interest, I = }  \\frac{P \\times R \\times T}{100} \\\\ \\text{(where P = Principal, R = Rate,} \\\\ \\text{T = Time)}`, 
+    text: `\\text{Simple Interest, I = }  \\frac{P R T}{100} \\\\ \\text{(where P = Principal, R = Rate,} \\\\ \\text{T = Time)}`, 
   },
   {
     text: `\\text{A = P} \\bigl( 1 + \\frac{r}{100}\\bigr)^n`,
   },
   {
     text: `\\text{Amount repayed in installments,} \\\\  A  = \\frac{Pi}{1 - (1 + i)^{-n}} \\\\ \\text{(where P = Loan acquired, i =} \\\\ \\text{interest rate(i.e rate divided}\\\\ \\text{by 100),n = total } \\\\ \\text{number of repayments done)}`,
-  },
-   
+  },  
 ];
 
 
@@ -143,7 +142,7 @@ const Calculators = () => {
                 <div className="flex items-center mt-auto">
                  
                   &nbsp;
-                  <p className="ml-auto font-code text-xs font-bold text-n-1 uppercase tracking-wider" onClick={scientificCalc}  >
+                  <p className="ml-auto font-code text-xs font-bold text-n-1 uppercase tracking-wider cursor-pointer" onClick={scientificCalc}  >
                     Try It Now
                   </p>
                   <Arrow />
@@ -180,7 +179,7 @@ const Calculators = () => {
                 </p>
                 <div className="flex items-center mt-auto" >
                  
-                  <p className="ml-auto font-code text-xs font-bold text-n-1 uppercase tracking-wider" onClick={simpleInterestCalc}>
+                  <p className="ml-auto font-code text-xs font-bold text-n-1 uppercase tracking-wider cursor-pointer" onClick={simpleInterestCalc}>
                     Try It Now
                   </p>
                   <Arrow />
@@ -218,7 +217,7 @@ const Calculators = () => {
                 
                 <div className="flex items-center mt-auto" >
                  
-                  <p className="ml-auto font-code text-xs font-bold text-n-1 uppercase tracking-wider" onClick={compoundInterestCalc}>
+                  <p className="ml-auto font-code text-xs font-bold text-n-1 uppercase tracking-wider cursor-pointer" onClick={compoundInterestCalc}>
                     Try It Now
                   </p>
                   <Arrow />
@@ -251,7 +250,7 @@ const Calculators = () => {
                
                 <div className="flex items-center mt-auto">
                  
-                  <p className="ml-auto font-code text-xs font-bold text-n-1 uppercase tracking-wider" onClick={amortizationCalc}>
+                  <p className="ml-auto font-code text-xs font-bold text-n-1 uppercase tracking-wider cursor-pointer" onClick={amortizationCalc}>
                     Try It Now
                   </p>
                   <Arrow />
@@ -288,7 +287,7 @@ const Calculators = () => {
                
                 <div className="flex items-center mt-auto">
                  
-                  <p className="ml-auto font-code text-xs font-bold text-n-1 uppercase tracking-wider" onClick={quadraticCalc}>
+                  <p className="ml-auto font-code text-xs font-bold text-n-1 uppercase tracking-wider cursor-pointer" onClick={quadraticCalc}>
                     Try It Now
                   </p>
                   <Arrow />
@@ -322,7 +321,7 @@ const Calculators = () => {
                               
                 <div className="flex items-center mt-auto">
                  
-                  <p className="ml-auto font-code text-xs font-bold text-n-1 uppercase tracking-wider" onClick={measuresOfCentralTendencyRawCalc}>
+                  <p className="ml-auto font-code text-xs font-bold text-n-1 uppercase tracking-wider cursor-pointer" onClick={measuresOfCentralTendencyRawCalc}>
                     Try It Now
                   </p>
                   <Arrow />
@@ -353,7 +352,7 @@ const Calculators = () => {
                
                 <div className="flex items-center mt-auto">
                  
-                  <p className="ml-auto font-code text-xs font-bold text-n-1 uppercase tracking-wider" onClick={measuresOfCentralTendencyTabulatedCalc}>
+                  <p className="ml-auto font-code text-xs font-bold text-n-1 uppercase tracking-wider cursor-pointer" onClick={measuresOfCentralTendencyTabulatedCalc}>
                     Try It Now
                   </p>
                   <Arrow />
@@ -385,7 +384,7 @@ const Calculators = () => {
                               
                 <div className="flex items-center mt-auto">
                  
-                  <p className="ml-auto font-code text-xs font-bold text-n-1 uppercase tracking-wider" onClick={measuresOfCentralTendencyGroupedCalc}>
+                  <p className="ml-auto font-code text-xs font-bold text-n-1 uppercase tracking-wider cursor-pointer" onClick={measuresOfCentralTendencyGroupedCalc}>
                     Try It Now
                   </p>
                   <Arrow />
@@ -417,7 +416,7 @@ const Calculators = () => {
                
                 <div className="flex items-center mt-auto">
                  
-                  <p className="ml-auto font-code text-xs font-bold text-n-1 uppercase tracking-wider" onClick={measuresOfDispersionUngroupedCalc}>
+                  <p className="ml-auto font-code text-xs font-bold text-n-1 uppercase tracking-wider cursor-pointer" onClick={measuresOfDispersionUngroupedCalc}>
                     Try It Now
                   </p>
                   <Arrow />
@@ -444,12 +443,12 @@ const Calculators = () => {
             >
               <div className="relative z-2 flex flex-col min-h-[22rem] p-[2.4rem]">
                 <h5 className="h5 mb-5">Measures Of Dispersion (Grouped Data) Calculator</h5>
-                <p className="body-2 mb-6 text-n-3">This is the grouped data version of Measures of Dispersion and returns Range, Mean Deviation(MD), Variance and Standard Deviation(SD). Additionally, the calculator gives the Mean value of the grouped data, as this is integral to the calculation of MD, Variance and SD(Even though "Mean" is not one of the Measures of Dispersion). 
+                <p className="body-2 mb-6 text-n-3">This is the grouped data version of Measures of Dispersion and returns Range, Mean Deviation(MD), Variance and Standard Deviation(SD). Additionally, the calculator provides the Mean value of the grouped data, as this is integral to the calculation of MD, Variance and SD, although it is worth mentioning that "Mean" is not one of the Measures of Dispersion. 
                 </p>
                               
                 <div className="flex items-center mt-auto">
                  
-                  <p className="ml-auto font-code text-xs font-bold text-n-1 uppercase tracking-wider" onClick={measuresOfDispersionGroupedCalc}>
+                  <p className="ml-auto font-code text-xs font-bold text-n-1 uppercase tracking-wider cursor-pointer" onClick={measuresOfDispersionGroupedCalc}>
                     Try It Now
                   </p>
                   <Arrow />

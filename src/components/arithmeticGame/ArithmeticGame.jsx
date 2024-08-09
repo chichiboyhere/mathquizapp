@@ -1,11 +1,11 @@
 import { useState } from "react";
-import Section from "./Section";
-import Heading from "./Heading";
-import studentLarge from "../assets/arithmeticGame/student2final.png";
-import check from "../assets/multiplicationGame/check.svg";
-import Button from "./Button";
-import { arithmeticGameBenefits } from "../constants";
-import { selectedLevel, setTimer, quiz } from '../features/arithmeticGameSlice';
+import Section from "../Section";
+import Heading from "../Heading";
+import studentLarge from "../../assets/arithmeticGame/student2final.png";
+import check from "../../assets/multiplicationGame/check.svg";
+import Button from "../Button";
+import { arithmeticGameBenefits } from "../../constants";
+import { selectedLevel, setTimer, quiz } from '../../features/arithmeticGameSlice';
 import { useSelector, useDispatch } from "react-redux";
 
 

@@ -1,24 +1,14 @@
 import ButtonGradient from "./assets/svg/ButtonGradient";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
-import MultiplicationGame from "./components/MultiplicationGame";
-import MultiplicationGameEnd from "./components/MultiplicationGameEnd";
-import MultiplicationGamePlay from "./components/MultiplicationGamePlay";
-import ArithmeticGame from "./components/ArithmeticGame";
-import ArithmeticGameEnd from "./components/ArithmeticGameEnd";
-import ArithmeticGamePlay from "./components/ArithmeticGamePlay";
+import MultiplicationGame from "./components/multiplicationGame/MultiplicationGame";
+import MultiplicationGameEnd from "./components/multiplicationGame/MultiplicationGameEnd";
+import MultiplicationGamePlay from "./components/multiplicationGame/MultiplicationGamePlay";
+import ArithmeticGame from "./components/arithmeticGame/ArithmeticGame";
+import ArithmeticGameEnd from "./components/arithmeticGame/ArithmeticGameEnd";
+import ArithmeticGamePlay from "./components/arithmeticGame/ArithmeticGamePlay";
 import Footer from "./components/Footer";
 import { useSelector } from "react-redux";
-import ScientificCalculator from "./components/ScientificCalculator";
-import SimpleInterest from "./components/SimpleInterest";
-import CompoundInterest from "./components/CompoundInterest";
-import QuadraticEquation from "./components/QuadraticEquation";
-import MeasuresOfDispersionGrouped from "./components/MeasuresOfDispersionGrouped";
-import MeasuresOfDispersionUngrouped from "./components/MeasuresOfDispersionUngrouped";
-import MeasuresOfCentralTendencyRaw from "./components/MeasuresOfCentralTendencyRaw";
-import MeasuresOfCentralTendencyGrouped from "./components/MeasuresOfCentralTendencyGrouped";
-import MeasuresOfCentralTendencyTabulate from "./components/MeasuresOfCentralTendencyTabulated";
-import AmortizationCalculator from "./components/AmortizationCalculator";
 import Calculators from "./components/Calculators";
 
 const App = () => {
@@ -40,18 +30,7 @@ const App = () => {
         {arithmeticGameState === "start" && <ArithmeticGame />}
         {arithmeticGameState === "quiz" && <ArithmeticGamePlay />}
         {arithmeticGameState === "end" && <ArithmeticGameEnd />}
-
         <Calculators />
-        {/* <ScientificCalculator /> */}
-        {/* <CompoundInterest /> */}
-        {/* <QuadraticEquation /> */}
-        {/* <MeasuresOfDispersionGrouped /> */}
-        {/* <MeasuresOfDispersionUngrouped /> */}
-        {/* <MeasuresOfCentralTendencyRaw /> */}
-        {/* <MeasuresOfCentralTendencyTabulate /> */}
-        {/* <MeasuresOfCentralTendencyGrouped /> */}
-        {/* <SimpleInterest /> */}
-        {/* <AmortizationCalculator /> */}
         <Footer />
       </div>
 

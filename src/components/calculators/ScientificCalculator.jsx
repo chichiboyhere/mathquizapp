@@ -1,7 +1,7 @@
 // src/ScientificCalculator.js
 import React, { useState } from "react";
 import { create, all } from "mathjs";
-import Button from "./Button";
+import Button from "../Button";
 
 const math = create(all);
 
