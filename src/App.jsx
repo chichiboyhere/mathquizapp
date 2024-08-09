@@ -19,6 +19,7 @@ import MeasuresOfCentralTendencyRaw from "./components/MeasuresOfCentralTendency
 import MeasuresOfCentralTendencyGrouped from "./components/MeasuresOfCentralTendencyGrouped";
 import MeasuresOfCentralTendencyTabulate from "./components/MeasuresOfCentralTendencyTabulated";
 import AmortizationCalculator from "./components/AmortizationCalculator";
+import Calculators from "./components/Calculators";
 
 const App = () => {
   const multiplicationGameState = useSelector(
@@ -39,8 +40,10 @@ const App = () => {
         {arithmeticGameState === "start" && <ArithmeticGame />}
         {arithmeticGameState === "quiz" && <ArithmeticGamePlay />}
         {arithmeticGameState === "end" && <ArithmeticGameEnd />}
+
+        <Calculators />
         {/* <ScientificCalculator /> */}
-        <CompoundInterest />
+        {/* <CompoundInterest /> */}
         {/* <QuadraticEquation /> */}
         {/* <MeasuresOfDispersionGrouped /> */}
         {/* <MeasuresOfDispersionUngrouped /> */}

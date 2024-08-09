@@ -23,8 +23,7 @@ const ArithmeticGame = () => {
         dispatch(setTimer(time));
     }
 
-    
- 
+   
     const options = [
       "basic",
       "moderate",
@@ -56,6 +55,7 @@ const ArithmeticGame = () => {
           <div className="relative z-1 flex items-center h-[39rem] mb-5 p-8 border border-n-1/10 rounded-3xl overflow-hidden lg:p-20 xl:h-[46rem]">
             <div className="absolute top-0 left-0 w-full h-full pointer-events-none md:w-3/5 xl:w-auto opacity-30 md:opacity-100">
               <img
+                
                 className="w-full h-full object-cover md:object-right"
                 width={800}
                 alt="Student"
@@ -80,7 +80,7 @@ const ArithmeticGame = () => {
                   
                 ))}  
               </ul>
-
+              
               <p className="body-2 mb-[3rem] text-n-3">
                  So have fun while at it!
               </p>

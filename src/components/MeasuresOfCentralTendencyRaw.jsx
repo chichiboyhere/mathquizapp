@@ -1,6 +1,7 @@
 import React, { useState } from "react";
+import Button from "./Button";
 
-const MeasuresOfCentralTendencyRaw = () => {
+const MeasuresOfCentralTendencyRaw = ({menuShow}) => {
   const [input, setInput] = useState("");
   const [mean, setMean] = useState(null);
   const [mode, setMode] = useState(null);
@@ -119,6 +120,9 @@ const MeasuresOfCentralTendencyRaw = () => {
           <h2 className="text-xl font-semibold text-black">{median}</h2>
         </div>
       )}
+       <div className="mt-4">
+         <Button onClick={menuShow}>Back To Menu</Button>
+      </div> 
     </div>
   );
 };

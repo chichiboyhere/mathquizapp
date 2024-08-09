@@ -1,6 +1,7 @@
 import React, { useState } from "react";
+import Button from "./Button";
 
-const MeasuresOfDispersionGrouped = () => {
+const MeasuresOfDispersionGrouped = ({menuShow}) => {
   const [data, setData] = useState([{ lower: "", upper: "", freq: "" }]);
   const [range, setRange] = useState(null);
   const [mean, setMean] = useState(null);
@@ -146,6 +147,7 @@ const MeasuresOfDispersionGrouped = () => {
                   value={field.freq}
                   onChange={(event) => handleChange(index, event)}
                   className="w-full px-2 py-1 border rounded text-center"
+                  min={1}
                 />
               </td>
               <td>
@@ -217,6 +219,9 @@ const MeasuresOfDispersionGrouped = () => {
           </h2>
         </div>
       )}
+      <div className="mt-4">
+         <Button onClick={menuShow}>Back To Menu</Button>
+      </div> 
     </div>
   );
 };

@@ -1,12 +1,14 @@
 // src/ScientificCalculator.js
 import React, { useState } from "react";
 import { create, all } from "mathjs";
+import Button from "./Button";
 
 const math = create(all);
 
-const ScientificCalculator = () => {
+const ScientificCalculator = ({menuShow}) => {
   const [display, setDisplay] = useState("");
   const [radianMode, setRadianMode] = useState(true);
+ 
 
   const handleButtonClick = (value) => {
     if (value === "C") {
@@ -142,6 +144,9 @@ const ScientificCalculator = () => {
         >
           =
         </button>
+      </div>
+      <div className="mt-4">
+         <Button onClick={menuShow}>Back To Menu</Button>
       </div>
     </div>
   );

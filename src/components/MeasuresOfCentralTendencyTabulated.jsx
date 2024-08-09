@@ -1,6 +1,7 @@
 import React, { useState } from "react";
+import Button from "./Button";
 
-const MeasuresOfCentralTendencyTabulate = () => {
+const MeasuresOfCentralTendencyTabulate = ({menuShow}) => {
   const [data, setData] = useState([{ value: "", freq: 1 }]);
   const [median, setMedian] = useState(null);
   const [mean, setMean] = useState(null);
@@ -172,6 +173,9 @@ const MeasuresOfCentralTendencyTabulate = () => {
           <h2 className="text-xl font-semibold text-black">Median: {median}</h2>
         </div>
       )}
+      <div className="mt-4">
+         <Button onClick={menuShow}>Back To Menu</Button>
+      </div> 
     </div>
   );
 };

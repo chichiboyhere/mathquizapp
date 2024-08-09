@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
+import Button from './Button';
 
-const MeasuresOfCentralTendencyGrouped = () => {
+const MeasuresOfCentralTendencyGrouped = ({menuShow}) => {
   const [data, setData] = useState([{ lower: '', upper: '', frequency: '' }]);
   const [mean, setMean] = useState(null)
   const [mode, setMode] = useState(null)
@@ -131,6 +132,7 @@ const MeasuresOfCentralTendencyGrouped = () => {
                   value={row.frequency}
                   onChange={(e) => handleChange(index, 'frequency', e.target.value)}
                   className="w-full px-2 py-1 border rounded text-center"
+                  min={1}
                 />
               </td>
                <td>
@@ -184,6 +186,9 @@ const MeasuresOfCentralTendencyGrouped = () => {
           <h2 className="text-xl font-semibold text-black">Median: {median}</h2>
         </div>
       )}
+       <div className="mt-4">
+         <Button onClick={menuShow}>Back To Menu</Button>
+      </div> 
     </div>
   );
 };

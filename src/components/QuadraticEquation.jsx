@@ -1,6 +1,7 @@
 import React, { useState} from 'react'
+import Button from './Button'
 
-const QuadraticEquation = () => {
+const QuadraticEquation = ({menuShow}) => {
  const [xSquaredInput, setXSquaredInput] = useState("")
  const [xInput, setXInput] = useState("")
  const [constant, setConstant] = useState("")
@@ -63,7 +64,7 @@ const QuadraticEquation = () => {
         Quadratic Equation Calculator
       </h1>
       <h2 className="text-xl font-bold mb-4 text-white">
-      Enter the appropriate figures in the boxes below and push the 'solve' button to get the result(s)
+      Enter the appropriate figures in the boxes below and push the 'solve' button to get the result
       </h2>
       <h2 className="text-xl font-bold mb-4 text-white">
        Quadratic Form: &nbsp; ax&sup2; + bx + c = 0
@@ -118,7 +119,9 @@ const QuadraticEquation = () => {
           <h2 className="text-xl font-semibold text-black">{result}</h2>
         </div>
       )}
-
+      <div className="mt-4">
+         <Button onClick={menuShow}>Back To Menu</Button>
+      </div> 
      
     </div>
 

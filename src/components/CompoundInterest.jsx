@@ -3,7 +3,7 @@ import Button from "./Button";
 import Section from "./Section";
 import Heading from "./Heading";
 
-const CompoundInterest = () => {
+const CompoundInterest = ({menuShow}) => {
   const [principal, setPrincipal] = useState("");
   const [rate, setRate] = useState("");
   const [numOfCpd, setNumOfCpd] = useState("");
@@ -328,6 +328,9 @@ const CompoundInterest = () => {
         </button>
       </div>
     </form> 
+      <div className="mt-4">
+         <Button onClick={menuShow}>Back To Menu</Button>
+      </div> 
    </div>     
     
   );

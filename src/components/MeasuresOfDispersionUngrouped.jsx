@@ -1,6 +1,7 @@
 import React, { useState } from "react";
+import Button from "./Button";
 
-const MeasuresOfDispersionUngrouped = () => {
+const MeasuresOfDispersionUngrouped = ({menuShow}) => {
   const [data, setData] = useState([{ value: "", freq: 1 }]);
   const [range, setRange] = useState(null);
   const [meanDeviation, setMeanDeviation] = useState(null);
@@ -86,7 +87,7 @@ const MeasuresOfDispersionUngrouped = () => {
   return (
     <div className="container mx-auto p-4 md:w-1/2">
       <h1 className="text-2xl font-bold mb-4">
-        Range, Mean Deviation, Variance, Standard Deviation Calculator
+        Range, Mean Deviation, Variance, Standard Deviation (Ungrouped)Calculator
       </h1>
       <table className="min-w-full bg-white">
         <thead>
@@ -182,6 +183,9 @@ const MeasuresOfDispersionUngrouped = () => {
           </h2>
         </div>
       )}
+      <div className="mt-4">
+         <Button onClick={menuShow}>Back To Menu</Button>
+      </div> 
     </div>
   );
 };

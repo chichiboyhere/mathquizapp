@@ -1,7 +1,8 @@
 // src/AmortizationCalculator.js
 import React, { useState } from "react";
+import Button from "./Button";
 
-const AmortizationCalculator = () => {
+const AmortizationCalculator = ({menuShow}) => {
   const [loanAmount, setLoanAmount] = useState("");
   const [interestRate, setInterestRate] = useState("");
   const [loanTerm, setLoanTerm] = useState("");
@@ -115,6 +116,9 @@ const AmortizationCalculator = () => {
           </table>
         </div>
       )}
+      <div className="mt-4">
+         <Button onClick={menuShow}>Back To Menu</Button>
+      </div> 
     </div>
   );
 };

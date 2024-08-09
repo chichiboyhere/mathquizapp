@@ -3,7 +3,7 @@ import Button from './Button';
 import Section from './Section';
 import Heading from './Heading';
 
-const SimpleInterest = () => {
+const SimpleInterest = ({menuShow}) => {
     const [principal, setPrincipal] = useState("");
     const [rate, setRate] = useState("");
     const [timeYear, setTimeYear] = useState("")
@@ -361,7 +361,10 @@ const SimpleInterest = () => {
           Reset
         </button>
       </div>
-    </form> 
+    </form>
+     <div className="mt-4">
+         <Button onClick={menuShow}>Back To Menu</Button>
+      </div> 
    </div>     
   )
 }
