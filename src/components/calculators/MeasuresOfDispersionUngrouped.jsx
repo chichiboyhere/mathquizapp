@@ -136,9 +136,10 @@ const MeasuresOfDispersionUngrouped = ({menuShow}) => {
       <div className="flex justify-center items-center gap-2">
         <button
           onClick={handleAddField}
-          className="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700 shrink"
+          className="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700 md:shrink"
+          
         >
-          Add Row
+          Add 
         </button>
         <button
           onClick={calculateMean}
@@ -148,7 +149,7 @@ const MeasuresOfDispersionUngrouped = ({menuShow}) => {
         </button>
         <button
           onClick={reset}
-          className="mt-4 ml-4 px-4 py-2 bg-yellow-500 text-white rounded hover:bg-yellow-600 shrink"
+          className="mt-4 ml-4 px-4 py-2 bg-yellow-500 text-white rounded hover:bg-yellow-600 md:shrink"
         >
           Reset
         </button>

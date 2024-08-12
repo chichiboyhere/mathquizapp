@@ -1,13 +1,13 @@
 import Section from "../Section";
 import Heading from "../Heading";
-import studentLarge from "../../assets/multiplicationGame/studentfinal.png";
+import studentImage from "../../assets/multiplicationGame/studentImage.png";
 import check from "../../assets/multiplicationGame/check.svg";
 import { multiplicationGameBenefits } from "../../constants";
 import Entry from "../Entry";
 
 const MultiplicationGame = () => {
   return (
-    <Section crosses id="multiplicationGame">
+    <Section id="multiplicationGame">
       <div className="container">
         <Heading
           title="Multiplication Game for Mental Alertness"
@@ -22,13 +22,13 @@ const MultiplicationGame = () => {
                 width={800}
                 alt="Student"
                 height={730}
-                src={studentLarge}
+                src={studentImage}
               />
             </div>
 
-            <div className="relative z-1 max-w-[17rem] ml-auto">
-              <h4 className="h4 mb-4">Benefits</h4>
-              <p className="body-2 mb-[3rem] text-n-3">
+            <div className="relative z-1 max-w-[17rem] ml-auto mb-1">
+              <h4 className="h4 mt-2">Benefits</h4>
+              <p className="body-2 mb-[1rem] text-n-3">
                 The Multiplication Game helps you:
               </p>
               <ul className="body-2">

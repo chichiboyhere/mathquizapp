@@ -131,7 +131,7 @@ const ArithmeticGamePlay = () => {
 
 
   return (
-    <Section id="arithmeticGame">
+    <Section crosses id="arithmeticGame">
     <div className="container">
       <Heading
         title="Arithmetic Game"

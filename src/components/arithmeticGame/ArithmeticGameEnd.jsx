@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import Section from "../Section";
 import Heading from '../Heading';
 import Button from '../Button';
-import studentLarge from "../../assets/arithmeticGame/student2final.png";
+import studentImage2 from "../../assets/arithmeticGame/studentImage2.png";
 
 const ArithmeticGameEnd = () => {
     const dispatch = useDispatch();
@@ -53,7 +53,7 @@ const ArithmeticGameEnd = () => {
 }
 
   return (
-    <Section id="arithmeticGame">
+    <Section crosses id="arithmeticGame">
         <div className="container">
          <Heading title="Arithmetic Game Result" text="Dear friend, here's how you performed." />
          <div className="relative">
@@ -64,7 +64,7 @@ const ArithmeticGameEnd = () => {
                 width={800}
                 alt="Student"
                 height={730}
-                src={studentLarge}
+                src={studentImage2}
               />
             </div>
 

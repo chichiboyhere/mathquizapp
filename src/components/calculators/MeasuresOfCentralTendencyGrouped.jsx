@@ -46,7 +46,7 @@ const MeasuresOfCentralTendencyGrouped = ({menuShow}) => {
     data.forEach((row, index) => {
       totalFrequency += parseFloat(row.frequency);
       cumulativeFrequency[index] = totalFrequency;
-      console.log(cumulativeFrequency[index])
+     
     });
 
     const N = totalFrequency / 2;
@@ -153,7 +153,7 @@ const MeasuresOfCentralTendencyGrouped = ({menuShow}) => {
           onClick={handleAddRow}
           className="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700 shrink"
         >
-          Add Row
+          Add
         </button>
         <button
           onClick={handleCalculateMean}

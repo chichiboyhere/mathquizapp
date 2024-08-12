@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import Section from "../Section";
 import Heading from '../Heading';
 import Button from '../Button';
-import studentLarge from "../../assets/multiplicationGame/studentfinal.png";
+import studentImage from "../../assets/multiplicationGame/studentImage.png";
 
 const MultiplicationGameEnd = () => {
     const dispatch = useDispatch();
@@ -58,7 +58,7 @@ const MultiplicationGameEnd = () => {
                 width={800}
                 alt="Student"
                 height={730}
-                src={studentLarge}
+                src={studentImage}
               />
             </div>
 

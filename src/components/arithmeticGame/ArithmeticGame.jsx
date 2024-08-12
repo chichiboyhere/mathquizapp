@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Section from "../Section";
 import Heading from "../Heading";
-import studentLarge from "../../assets/arithmeticGame/student2final.png";
+import studentImage2 from "../../assets/arithmeticGame/studentImage2.png";
 import check from "../../assets/multiplicationGame/check.svg";
 import Button from "../Button";
 import { arithmeticGameBenefits } from "../../constants";
@@ -60,11 +60,11 @@ const ArithmeticGame = () => {
                 width={800}
                 alt="Student"
                 height={730}
-                src={studentLarge}
+                src={studentImage2}
               />
             </div>
             <div className="relative z-1 max-w-[17rem] ml-auto">
-              <h4 className="h4 mt-2 mb-2">Your Tasks </h4>
+              <h4 className="h4 mt-4 mb-2">Your Tasks </h4>
               <p className="body-2 mb-2 text-n-3">
                 The Arithmetic Game tests your:
               </p>
@@ -81,7 +81,7 @@ const ArithmeticGame = () => {
                 ))}  
               </ul>
               
-              <p className="body-2 mb-[3rem] text-n-3">
+              <p className="body-2 mb-[1rem] text-n-3">
                  So have fun while at it!
               </p>
               
@@ -101,7 +101,7 @@ const ArithmeticGame = () => {
                             })}
                         </select>
 
-                        &nbsp;
+                    
                         Choose a time limit
                         <select onChange={onTimeLimitSelector} className="rounded-md border-2 border-y-amber-200 py-1 text-center">
                             {timeLimits.map((timeLimit, index) => {
@@ -112,10 +112,11 @@ const ArithmeticGame = () => {
                                 );
                             })}
                         </select>
-                    
-                        <Button  onClick={startGame}>Start</Button>  
+                   
+                       <Button  onClick={startGame}>Start</Button> 
+                                             
                 </div>
-                </main>
+              </main>
             </div> 
           </div>
         </div>
